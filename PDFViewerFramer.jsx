@@ -7,13 +7,28 @@ import { useState, useEffect } from "react"
  */
 export default function PDFViewer(props) {
     const { 
-        src, 
+        document = "presentation",
         width = "100vw", 
         height = "100vh", 
         borderRadius = 0,
         borderColor = "#ccc",
         fallbackText = "Your browser does not support PDF viewing. Please download the PDF to view it."
     } = props
+
+    // Map document enum to GitHub raw URLs
+    const getDocumentUrl = (documentType) => {
+        const baseUrl = "https://raw.githubusercontent.com/atef/framer-pdf-viewer/main/"
+        switch (documentType) {
+            case "presentation":
+                return `${baseUrl}Presentation.pdf`
+            case "sheet":
+                return `${baseUrl}Sheet.pdf`
+            default:
+                return `${baseUrl}Presentation.pdf`
+        }
+    }
+
+    const src = getDocumentUrl(document)
 
     const [viewerType, setViewerType] = useState('pdfjs') // 'pdfjs', 'fallback'
     const [isLoading, setIsLoading] = useState(true)
@@ -232,10 +247,12 @@ export default function PDFViewer(props) {
 }
 
 addPropertyControls(PDFViewer, {
-    src: {
-        title: "PDF URL",
-        type: ControlType.String,
-        defaultValue: "https://example.com/document.pdf",
+    document: {
+        title: "Document",
+        type: ControlType.Enum,
+        options: ["presentation", "sheet"],
+        optionTitles: ["Presentation", "Sheet"],
+        defaultValue: "presentation",
     },
     width: {
         title: "Width",
