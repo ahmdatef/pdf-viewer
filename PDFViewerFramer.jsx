@@ -17,7 +17,7 @@ export default function PDFViewer(props) {
 
     // Map document enum to GitHub raw URLs
     const getDocumentUrl = (documentType) => {
-        const baseUrl = "https://raw.githubusercontent.com/atef/framer-pdf-viewer/main/"
+        const baseUrl = "https://raw.githubusercontent.com/ahmdatef/pdf-viewer/main/"
         switch (documentType) {
             case "presentation":
                 return `${baseUrl}Presentation.pdf`
