@@ -1,0 +1,24 @@
+{
+  "name": "framer-pdf-viewer",
+  "version": "1.0.0",
+  "description": "A PDF viewer component for Framer websites with fallback support",
+  "main": "PDFViewerFramer.jsx",
+  "keywords": [
+    "framer",
+    "pdf",
+    "viewer",
+    "react",
+    "component"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "framer": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/framer-pdf-viewer.git"
+  },
+  "homepage": "https://github.com/yourusername/framer-pdf-viewer#readme"
+}
